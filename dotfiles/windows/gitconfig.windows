@@ -1,0 +1,27 @@
+[user]
+        name = YOUR_NAME
+        email = you@example.com
+[diff]
+        tool = p4merge
+[difftool "p4merge"]
+        cmd = /mnt/c/Program\\ Files/Perforce/p4merge.exe
+[difftool]
+        prompt = false
+[merge]
+        tool = p4merge
+[mergetool "p4merge"]
+        cmd = /mnt/c/Program\\ Files/Perforce/p4merge.exe
+        trustExitCode = false
+[mergetool]
+        prompt = false
+[credential]
+        helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager-core.exe
+        useHttpPath = true
+[alias]
+        hist = log --oneline --graph --decorate --all
+[core]
+        autocrlf = input
+        excludesFile = ~/.gitignore_global
+        safecrlf = false
+[init]
+        defaultBranch = main
