@@ -35,6 +35,7 @@ echo "Verifying WSL dotfiles and tools..."
 
 check_link_target "$HOME/.zshrc" "$REPO_ROOT/dotfiles/wsl/.zshrc"
 check_link_target "$HOME/.p10k.zsh" "$REPO_ROOT/dotfiles/wsl/.p10k.zsh"
+check_link_target "$HOME/.tmux.conf" "$REPO_ROOT/dotfiles/wsl/.tmux.conf"
 
 [[ -f "$HOME/.gitconfig" ]] || fail "~/.gitconfig is missing"
 [[ -f "$HOME/.gitignore_global" ]] || fail "~/.gitignore_global is missing"

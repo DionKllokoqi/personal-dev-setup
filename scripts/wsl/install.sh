@@ -20,6 +20,7 @@ link_file() {
 
 link_file "$REPO_ROOT/dotfiles/wsl/.zshrc" "$HOME/.zshrc"
 link_file "$REPO_ROOT/dotfiles/wsl/.p10k.zsh" "$HOME/.p10k.zsh"
+link_file "$REPO_ROOT/dotfiles/wsl/.tmux.conf" "$HOME/.tmux.conf"
 
 if [[ ! -f "$HOME/.gitconfig" ]]; then
   cp "$REPO_ROOT/dotfiles/wsl/gitconfig.wsl" "$HOME/.gitconfig"

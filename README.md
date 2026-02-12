@@ -11,6 +11,8 @@ This repo captures my Windows + WSL development setup (dotfiles, terminal settin
 - `scripts/` – Setup and bootstrap scripts
 - `docs/` – Notes and checklists
 
+WSL dotfiles include `~/.zshrc`, `~/.p10k.zsh`, and `~/.tmux.conf`.
+
 ## Quick start (WSL)
 
 1. Clone the repo.
