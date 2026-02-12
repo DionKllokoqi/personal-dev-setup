@@ -42,12 +42,11 @@ check_link_target "$HOME/.p10k.zsh" "$REPO_ROOT/dotfiles/wsl/.p10k.zsh"
 check_cmd zsh
 check_cmd git
 check_cmd tmux
-check_cmd gh
 check_cmd python3
 check_cmd pip3
 
 echo "Checking optional tools (informational)..."
-for opt in az azd tofu rustc pyenv aws kubectl pre-commit codex; do
+for opt in az azd gh tofu rustc pyenv aws kubectl pre-commit codex; do
   if command -v "$opt" >/dev/null 2>&1; then
     echo "OK(optional): $opt"
   else

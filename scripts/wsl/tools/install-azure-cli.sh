@@ -6,4 +6,4 @@ if command -v az >/dev/null 2>&1; then
   exit 0
 fi
 
-curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+curl -fsSL https://aka.ms/InstallAzureCLIDeb | sudo bash

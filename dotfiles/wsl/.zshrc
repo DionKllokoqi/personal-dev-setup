@@ -82,10 +82,6 @@ plugins=(git gh dotnet dotenv fzf autojump zsh-autosuggestions zsh-autocomplete 
 
 source $ZSH/oh-my-zsh.sh
 
-# Activate conda base environment
-# source /home/noidk/miniconda3/etc/profile.d/conda.sh
-# conda activate base
-
 # zsh parameter completion for the dotnet CLI
 _dotnet_zsh_complete() {
   local completions
@@ -134,14 +130,11 @@ compdef _dotnet_zsh_complete dotnet
 export GOPATH="$HOME/go"
 export PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
 
-# Miniconda path
-export PATH="/home/noidk/miniconda3/bin:$PATH"
-
 # Path addition for docker credential management
-export PATH="/home/noidk/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 # Path addition for aws cli
-export PATH="/home/noidk/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Path for dotnet tools like dotnet-ef
 export PATH="$HOME/.dotnet/tools:$PATH"
@@ -168,7 +161,7 @@ if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
 fi
 
 # opencode
-export PATH="/home/noidk/.opencode/bin:$PATH"
+export PATH="$HOME/.opencode/bin:$PATH"
 
 # codex
 command -v codex >/dev/null 2>&1 && eval "$(codex completion zsh)"

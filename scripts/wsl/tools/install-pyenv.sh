@@ -6,6 +6,12 @@ if command -v pyenv >/dev/null 2>&1; then
   exit 0
 fi
 
+if [[ -d "$HOME/.pyenv" ]]; then
+  echo "Found $HOME/.pyenv but pyenv is not on PATH."
+  echo "Add PYENV_ROOT and PATH to your shell config, then restart your shell."
+  exit 0
+fi
+
 sudo apt-get update
 sudo apt-get install -y \
   make build-essential libssl-dev zlib1g-dev \
