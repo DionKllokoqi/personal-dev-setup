@@ -22,7 +22,7 @@ $packages = @(
     "JGraph.Draw",
     "Microsoft.WindowsTerminal",
     "Microsoft.VisualStudioCode",
-    "Microsoft.VisualStudio.2022.Community",
+    "Microsoft.VisualStudio.Community",
     "JetBrains.Rider",
     "JetBrains.RustRover",
     "JetBrains.PyCharm.Community",
