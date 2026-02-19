@@ -42,9 +42,12 @@ Optional: install baseline packages:
 scripts/wsl/bootstrap.sh
 ```
 
+This installs core shell/tools.
+
 Optional: install individual tools:
 
 ```bash
+scripts/wsl/tools/install-dotnet.sh
 scripts/wsl/tools/install-rustup.sh
 scripts/wsl/tools/install-pyenv.sh
 scripts/wsl/tools/install-azure-cli.sh
@@ -73,11 +76,15 @@ Optional: install baseline packages:
 scripts\\windows\\bootstrap.ps1
 ```
 
+This installs core tools.
+
 Optional: install individual tools:
 
 ```powershell
 scripts\\windows\\tools.ps1
 ```
+
+This includes optional tools such as Rustup and the highest available `Microsoft.DotNet.SDK.<major>` package from winget.
 
 Verify setup:
 

@@ -12,6 +12,25 @@ $packages = @(
     "Kubernetes.kubectl"
 )
 
+function Get-LatestDotnetSdkPackageId {
+    for ($major = 20; $major -ge 6; $major--) {
+        $id = "Microsoft.DotNet.SDK.$major"
+        winget show --id $id -e --accept-source-agreements *> $null
+        if ($LASTEXITCODE -eq 0) {
+            return $id
+        }
+    }
+    return $null
+}
+
+$dotnetSdkPackage = Get-LatestDotnetSdkPackageId
+if ($dotnetSdkPackage) {
+    Write-Host "Selected latest .NET SDK package: $dotnetSdkPackage"
+    $packages += $dotnetSdkPackage
+} else {
+    Write-Host "Failed to find a Microsoft.DotNet.SDK.<major> package in winget."
+}
+
 foreach ($pkg in $packages) {
     Write-Host "Installing $pkg"
     winget install --id $pkg -e --accept-source-agreements --accept-package-agreements || Write-Host "Failed: $pkg"

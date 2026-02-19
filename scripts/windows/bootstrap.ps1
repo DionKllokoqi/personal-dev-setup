@@ -13,7 +13,6 @@ $packages = @(
     "Microsoft.AzureCLI",
     "Microsoft.Azd",
     "OpenTofu.OpenTofu",
-    "Microsoft.DotNet.SDK.8",
     "Docker.DockerDesktop",
     "Git.Git",
     "GitHub.cli",
