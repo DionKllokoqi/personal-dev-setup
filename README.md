@@ -22,6 +22,8 @@ WSL dotfiles include `~/.zshrc`, `~/.p10k.zsh`, and `~/.tmux.conf`.
 scripts/wsl/install.sh
 ```
 
+This links dotfiles and does a best-effort install of Oh My Zsh, Powerlevel10k, and required Zsh plugins.
+
 3. Set `zsh` as your default login shell:
 
 ```bash
