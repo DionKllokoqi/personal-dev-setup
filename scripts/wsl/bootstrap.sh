@@ -16,6 +16,7 @@ sudo apt-get install -y \
   gnupg \
   lsb-release \
   fzf \
+  eza \
   autojump \
   python3 \
   python3-pip \
