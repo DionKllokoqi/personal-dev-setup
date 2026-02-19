@@ -78,7 +78,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # Note: keep syntax-highlighting last to avoid conflicts.
-plugins=(git gh dotnet dotenv fzf eza autojump zsh-autosuggestions zsh-autocomplete fast-syntax-highlighting)
+plugins=(git gh dotnet dotenv fzf eza autojump zsh-autosuggestions fast-syntax-highlighting zsh-autocomplete)
 
 if [[ -r "$ZSH/oh-my-zsh.sh" ]]; then
   source "$ZSH/oh-my-zsh.sh"
