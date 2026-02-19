@@ -3,6 +3,12 @@ set -euo pipefail
 
 sudo apt-get update
 
+# Install latest Git from the official Git maintainers PPA.
+# `software-properties-common` provides `apt-add-repository`.
+sudo apt-get install -y software-properties-common
+sudo apt-add-repository -y ppa:git-core/ppa
+sudo apt-get update
+
 # Core shell/tools
 sudo apt-get install -y \
   zsh \
