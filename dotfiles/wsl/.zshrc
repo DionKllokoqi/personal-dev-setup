@@ -80,7 +80,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Note: keep syntax-highlighting last to avoid conflicts.
 plugins=(git gh dotnet dotenv fzf eza autojump zsh-autosuggestions zsh-autocomplete fast-syntax-highlighting)
 
-source $ZSH/oh-my-zsh.sh
+if [[ -r "$ZSH/oh-my-zsh.sh" ]]; then
+  source "$ZSH/oh-my-zsh.sh"
+else
+  echo "Warning: Oh My Zsh is not installed at $ZSH. Install it or adjust ~/.zshrc." >&2
+fi
 
 # zsh parameter completion for the dotnet CLI
 _dotnet_zsh_complete() {
@@ -149,7 +153,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv >/dev/null 2>&1; then
   eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
+  if pyenv commands | grep -qx 'virtualenv-init'; then
+    eval "$(pyenv virtualenv-init -)"
+  fi
 fi
 
 # Add autoenv tool for zshell
@@ -164,6 +170,8 @@ fi
 export PATH="$HOME/.opencode/bin:$PATH"
 
 # codex
-command -v codex >/dev/null 2>&1 && eval "$(codex completion zsh)"
+if command -v codex >/dev/null 2>&1; then
+  _codex_completion="$(codex completion zsh 2>/dev/null)" && eval "$_codex_completion"
+fi
 
 [[ -s /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh

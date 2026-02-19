@@ -3,6 +3,7 @@
 ## WSL scripts
 
 - Some installers require `sudo` and will prompt for your password.
+- `scripts/wsl/install.sh` does a best-effort install of Oh My Zsh and `pyenv-virtualenv` if dependencies and network are available.
 - After installing Rustup, open a new shell or source `~/.cargo/env`.
 - After installing pyenv, ensure the snippet in `.zshrc` is present and open a new shell.
 

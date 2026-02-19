@@ -22,6 +22,18 @@ WSL dotfiles include `~/.zshrc`, `~/.p10k.zsh`, and `~/.tmux.conf`.
 scripts/wsl/install.sh
 ```
 
+3. Set `zsh` as your default login shell:
+
+```bash
+chsh -s "$(which zsh)"
+```
+
+Close and reopen your WSL session, then verify:
+
+```bash
+echo "$SHELL"
+```
+
 Optional: install baseline packages:
 
 ```bash
