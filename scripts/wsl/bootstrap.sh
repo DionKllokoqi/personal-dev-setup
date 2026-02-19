@@ -29,7 +29,7 @@ sudo apt-get install -y \
   python3-venv
 
 # Optional CLI tools (install if available via apt)
-for pkg in azure-cli gh awscli kubectl pre-commit; do
+for pkg in azure-cli gh kubectl pre-commit; do
   if apt-cache show "$pkg" >/dev/null 2>&1; then
     sudo apt-get install -y "$pkg"
   else

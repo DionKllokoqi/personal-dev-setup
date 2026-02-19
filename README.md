@@ -47,6 +47,7 @@ This installs core shell/tools.
 Optional: install individual tools:
 
 ```bash
+scripts/wsl/tools/install-aws-cli.sh
 scripts/wsl/tools/install-dotnet.sh
 scripts/wsl/tools/install-rustup.sh
 scripts/wsl/tools/install-pyenv.sh
