@@ -163,7 +163,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv >/dev/null 2>&1; then
   eval "$(pyenv init -)"
-  if pyenv commands | grep -qx 'virtualenv-init'; then
+  if [[ -d "$PYENV_ROOT/plugins/pyenv-virtualenv" ]]; then
     eval "$(pyenv virtualenv-init -)"
   fi
 fi
@@ -184,8 +184,14 @@ if command -v codex >/dev/null 2>&1; then
   _codex_path="$(command -v codex)"
   if [[ "$_codex_path" == /mnt/c/* ]]; then
     echo "Warning: codex resolves to Windows path in WSL: $_codex_path" >&2
+  else
+    _codex_cache_file="${XDG_CACHE_HOME:-$HOME/.cache}/codex/completion.zsh"
+    mkdir -p "${_codex_cache_file:h}"
+    if [[ ! -s "$_codex_cache_file" || "$_codex_path" -nt "$_codex_cache_file" ]]; then
+      codex completion zsh >| "$_codex_cache_file" 2>/dev/null || true
+    fi
+    [[ -s "$_codex_cache_file" ]] && source "$_codex_cache_file"
   fi
-  _codex_completion="$(codex completion zsh 2>/dev/null)" && eval "$_codex_completion"
 fi
 
 if command -v node >/dev/null 2>&1; then
