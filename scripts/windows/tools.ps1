@@ -5,6 +5,7 @@ if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
 }
 
 $packages = @(
+    "CoreyButler.NVMforWindows",
     "Rustlang.Rustup",
     "Microsoft.AzureCLI",
     "Microsoft.Azd",
@@ -35,3 +36,5 @@ foreach ($pkg in $packages) {
     Write-Host "Installing $pkg"
     winget install --id $pkg -e --accept-source-agreements --accept-package-agreements || Write-Host "Failed: $pkg"
 }
+
+Write-Host "To install Node LTS + codex via nvm-windows, run: scripts\\windows\\install-node-codex.ps1"

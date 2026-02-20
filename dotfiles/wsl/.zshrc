@@ -144,6 +144,16 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.dotnet/tools:$PATH"
 export DOTNET_ROOT="/usr/share/dotnet/"
 
+# Keep Windows Node installations from shadowing native WSL Node.
+if [[ -n "${WSL_DISTRO_NAME:-}" ]]; then
+  path=(${(s/:/)PATH})
+  path=(${path:#/mnt/c/nvm4w/nodejs})
+  path=(${path:#/mnt/c/nvm4w/nodejs/})
+  path=(${path:#/mnt/c/Program Files/nodejs})
+  path=(${path:#/mnt/c/Program Files/nodejs/})
+  export PATH="${(j/:/)path}"
+fi
+
 export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/nvm.sh" ]] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [[ -s "$NVM_DIR/bash_completion" ]] && . "$NVM_DIR/bash_completion"  # This loads nvm bash completion
@@ -171,7 +181,18 @@ export PATH="$HOME/.opencode/bin:$PATH"
 
 # codex
 if command -v codex >/dev/null 2>&1; then
+  _codex_path="$(command -v codex)"
+  if [[ "$_codex_path" == /mnt/c/* ]]; then
+    echo "Warning: codex resolves to Windows path in WSL: $_codex_path" >&2
+  fi
   _codex_completion="$(codex completion zsh 2>/dev/null)" && eval "$_codex_completion"
+fi
+
+if command -v node >/dev/null 2>&1; then
+  _node_path="$(command -v node)"
+  if [[ "$_node_path" == /mnt/c/* ]]; then
+    echo "Warning: node resolves to Windows path in WSL: $_node_path" >&2
+  fi
 fi
 
 [[ -s /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh

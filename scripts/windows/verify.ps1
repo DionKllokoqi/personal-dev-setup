@@ -37,7 +37,7 @@ Assert-Command "dotnet"
 Assert-Command "oh-my-posh"
 
 Write-Host "Checking optional tools (informational)..."
-$optional = @("az", "azd", "tofu", "kubectl", "aws", "rustup", "codex")
+$optional = @("az", "azd", "tofu", "kubectl", "aws", "rustup", "nvm", "node", "npm", "codex")
 foreach ($tool in $optional) {
     if (Get-Command $tool -ErrorAction SilentlyContinue) {
         Write-Host "OK(optional): $tool"

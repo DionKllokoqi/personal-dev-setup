@@ -12,6 +12,7 @@
 - Azure Developer CLI
 - OpenTofu
 - .NET SDK + runtime
+- Node.js via nvm-windows
 - Git
 - GitHub CLI
 - Tmux (via WSL)
@@ -41,6 +42,7 @@
 - Azure Developer CLI
 - OpenTofu
 - .NET SDK + runtime
+- Node.js via nvm (nvm-sh)
 - Docker CLI
 - Git
 - GitHub CLI

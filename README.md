@@ -47,6 +47,7 @@ This installs core shell/tools.
 Optional: install individual tools:
 
 ```bash
+scripts/wsl/tools/install-node-codex.sh
 scripts/wsl/tools/install-aws-cli.sh
 scripts/wsl/tools/install-dotnet.sh
 scripts/wsl/tools/install-rustup.sh
@@ -83,9 +84,10 @@ Optional: install individual tools:
 
 ```powershell
 scripts\\windows\\tools.ps1
+scripts\\windows\\install-node-codex.ps1
 ```
 
-This includes optional tools such as Rustup and the highest available `Microsoft.DotNet.SDK.<major>` package from winget.
+This includes optional tools such as nvm-windows, Rustup, and the highest available `Microsoft.DotNet.SDK.<major>` package from winget. `install-node-codex.ps1` installs Node.js (LTS) via nvm-windows and then installs Codex via npm.
 
 Verify setup:
 
@@ -109,3 +111,4 @@ This repo uses placeholders for personal data (name, email, etc). Update these a
 - Tool install notes: `docs/tools-install-notes.md`.
 - Safe testing guide: `docs/safe-testing.md`.
 - If any tool is missing, check `docs/` for the setup checklist.
+- Keep Node/Codex installs separate by OS: run Node/Codex installers inside each environment (PowerShell for Windows, WSL shell for Ubuntu).

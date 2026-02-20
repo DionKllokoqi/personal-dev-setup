@@ -16,6 +16,24 @@ check_cmd() {
   fi
 }
 
+check_not_windows_path() {
+  local cmd="$1"
+  local resolved
+  resolved=$(command -v "$cmd")
+  if [[ "$resolved" == /mnt/c/* ]]; then
+    fail "$cmd resolves to Windows path in WSL: $resolved"
+  fi
+}
+
+check_nvm_managed_path() {
+  local cmd="$1"
+  local resolved
+  resolved=$(readlink -f "$(command -v "$cmd")")
+  if [[ "$resolved" != "$HOME/.nvm/"* ]]; then
+    fail "$cmd is not nvm-managed in WSL: $resolved"
+  fi
+}
+
 check_link_target() {
   local path="$1"
   local expected="$2"
@@ -47,9 +65,25 @@ check_cmd python3
 check_cmd pip3
 
 echo "Checking optional tools (informational)..."
-for opt in az azd gh tofu rustc pyenv aws kubectl pre-commit codex; do
+for opt in az azd gh tofu rustc pyenv aws kubectl pre-commit; do
   if command -v "$opt" >/dev/null 2>&1; then
     echo "OK(optional): $opt"
+  else
+    echo "MISSING(optional): $opt"
+  fi
+done
+
+if [[ -s "$HOME/.nvm/nvm.sh" ]]; then
+  echo "OK(optional): nvm"
+else
+  echo "MISSING(optional): nvm"
+fi
+
+for opt in node npm codex; do
+  if command -v "$opt" >/dev/null 2>&1; then
+    check_not_windows_path "$opt"
+    check_nvm_managed_path "$opt"
+    echo "OK(optional): $opt (nvm-managed)"
   else
     echo "MISSING(optional): $opt"
   fi
