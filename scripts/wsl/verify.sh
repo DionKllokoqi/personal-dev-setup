@@ -49,11 +49,37 @@ check_link_target() {
   fi
 }
 
+check_line_in_file() {
+  local path="$1"
+  local expected="$2"
+  if ! grep -Fqx "$expected" "$path"; then
+    fail "$path is missing expected line: $expected"
+  fi
+}
+
+check_codex_config() {
+  local path="$HOME/.codex/config.toml"
+
+  [[ -f "$path" ]] || fail "$path is missing"
+
+  check_line_in_file "$path" 'personality = "pragmatic"'
+  check_line_in_file "$path" 'model = "gpt-5.3-codex"'
+  check_line_in_file "$path" 'model_reasoning_effort = "high"'
+  check_line_in_file "$path" 'shell_snapshot = true'
+  check_line_in_file "$path" 'approval_policy = "on-request"'
+  check_line_in_file "$path" 'sandbox_mode = "workspace-write"'
+  check_line_in_file "$path" "[projects.\"$HOME/projects\"]"
+  check_line_in_file "$path" 'trust_level = "trusted"'
+  check_line_in_file "$path" "[projects.\"$HOME\"]"
+  check_line_in_file "$path" 'trust_level = "untrusted"'
+}
+
 echo "Verifying WSL dotfiles and tools..."
 
 check_link_target "$HOME/.zshrc" "$REPO_ROOT/dotfiles/wsl/.zshrc"
 check_link_target "$HOME/.p10k.zsh" "$REPO_ROOT/dotfiles/wsl/.p10k.zsh"
 check_link_target "$HOME/.tmux.conf" "$REPO_ROOT/dotfiles/wsl/.tmux.conf"
+check_codex_config
 
 [[ -f "$HOME/.gitconfig" ]] || fail "~/.gitconfig is missing"
 [[ -f "$HOME/.gitignore_global" ]] || fail "~/.gitignore_global is missing"

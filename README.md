@@ -11,7 +11,7 @@ This repo captures my Windows + WSL development setup (dotfiles, terminal settin
 - `scripts/` – Setup and bootstrap scripts
 - `docs/` – Notes and checklists
 
-WSL dotfiles include `~/.zshrc`, `~/.p10k.zsh`, and `~/.tmux.conf`.
+WSL dotfiles include `~/.zshrc`, `~/.p10k.zsh`, and `~/.tmux.conf`. Codex config is generated from `dotfiles/wsl/.codex/config.toml.tmpl` to `~/.codex/config.toml`.
 
 ## Quick start (WSL)
 

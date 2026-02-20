@@ -108,9 +108,33 @@ link_file() {
   ln -sf "$src" "$dest"
 }
 
+render_codex_config() {
+  local template="$REPO_ROOT/dotfiles/wsl/.codex/config.toml.tmpl"
+  local dest="$HOME/.codex/config.toml"
+  local home_escaped
+
+  if [[ ! -f "$template" ]]; then
+    warn "Missing Codex config template at $template"
+    return
+  fi
+
+  home_escaped=$(printf '%s' "$HOME" | sed 's/[\/&]/\\&/g')
+
+  mkdir -p "$HOME/.codex"
+
+  if [[ -L "$dest" ]]; then
+    rm -f "$dest"
+  elif [[ -e "$dest" ]]; then
+    mv "$dest" "$BACKUP_DIR/"
+  fi
+
+  sed "s|__HOME__|$home_escaped|g" "$template" > "$dest"
+}
+
 link_file "$REPO_ROOT/dotfiles/wsl/.zshrc" "$HOME/.zshrc"
 link_file "$REPO_ROOT/dotfiles/wsl/.p10k.zsh" "$HOME/.p10k.zsh"
 link_file "$REPO_ROOT/dotfiles/wsl/.tmux.conf" "$HOME/.tmux.conf"
+render_codex_config
 
 install_oh_my_zsh
 install_oh_my_zsh_customizations
