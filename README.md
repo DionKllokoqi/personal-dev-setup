@@ -43,6 +43,7 @@ scripts/wsl/bootstrap.sh
 ```
 
 This installs core shell/tools.
+It also installs `xdg-open` (`xdg-utils`) and `wslview` (`wslu`) for browser handoff from WSL CLI tools (for example `gh auth login`).
 
 Optional: install individual tools:
 

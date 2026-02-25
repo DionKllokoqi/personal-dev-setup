@@ -14,6 +14,8 @@ sudo apt-get install -y \
   zsh \
   git \
   tmux \
+  xdg-utils \
+  wslu \
   curl \
   wget \
   unzip \

@@ -4,6 +4,7 @@
 
 - Some installers require `sudo` and will prompt for your password.
 - `scripts/wsl/install.sh` does a best-effort install of Oh My Zsh and `pyenv-virtualenv` if dependencies and network are available.
+- `scripts/wsl/bootstrap.sh` installs `xdg-utils` and `wslu` so WSL CLI tools can open browser flows through `xdg-open`/`wslview`.
 - `scripts/wsl/install.sh` renders `dotfiles/wsl/.codex/config.toml.tmpl` to `~/.codex/config.toml` using the current `$HOME`.
 - `scripts/wsl/tools/install-node-codex.sh` installs nvm, Node.js LTS, and `@openai/codex` natively in WSL.
 - `scripts/wsl/tools/install-aws-cli.sh` installs AWS CLI v2 from the official AWS zip installer.
@@ -11,6 +12,7 @@
 - After installing Rustup, open a new shell or source `~/.cargo/env`.
 - After installing pyenv, ensure the snippet in `.zshrc` is present and open a new shell.
 - WSL `.zshrc` removes common Windows Node paths from `PATH` (`/mnt/c/...nodejs`) so native WSL Node/Codex stay first.
+- WSL `.zshrc` sets `BROWSER` to `wslview` (fallback `xdg-open`) for deterministic browser launch behavior.
 - If Node/npm/Codex are installed, `scripts/wsl/verify.sh` validates they resolve under `~/.nvm`.
 
 ## Windows scripts

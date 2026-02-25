@@ -152,6 +152,15 @@ if [[ -n "${WSL_DISTRO_NAME:-}" ]]; then
   path=(${path:#/mnt/c/Program Files/nodejs})
   path=(${path:#/mnt/c/Program Files/nodejs/})
   export PATH="${(j/:/)path}"
+
+  # Prefer Windows browser handoff from WSL for CLI auth/device flows.
+  if command -v wslview >/dev/null 2>&1; then
+    export BROWSER="wslview"
+  elif command -v xdg-open >/dev/null 2>&1; then
+    export BROWSER="xdg-open"
+  else
+    echo "Warning: neither wslview nor xdg-open is available in WSL." >&2
+  fi
 fi
 
 export NVM_DIR="$HOME/.nvm"

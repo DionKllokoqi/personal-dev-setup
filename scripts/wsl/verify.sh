@@ -89,6 +89,8 @@ check_cmd git
 check_cmd tmux
 check_cmd python3
 check_cmd pip3
+check_cmd xdg-open
+check_cmd wslview
 
 echo "Checking optional tools (informational)..."
 for opt in az azd gh tofu rustc pyenv aws kubectl pre-commit; do
