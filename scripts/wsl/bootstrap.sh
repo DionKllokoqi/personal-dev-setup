@@ -14,6 +14,7 @@ sudo apt-get install -y \
   zsh \
   git \
   tmux \
+  htop \
   xdg-utils \
   wslu \
   curl \

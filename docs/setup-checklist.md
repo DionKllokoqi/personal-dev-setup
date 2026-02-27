@@ -47,6 +47,7 @@
 - Git
 - GitHub CLI
 - Tmux
+- htop
 - Rust
 - Pyenv / Python
 - AWS CLI

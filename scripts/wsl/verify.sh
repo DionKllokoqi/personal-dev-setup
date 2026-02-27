@@ -87,6 +87,7 @@ check_codex_config
 check_cmd zsh
 check_cmd git
 check_cmd tmux
+check_cmd htop
 check_cmd python3
 check_cmd pip3
 check_cmd xdg-open
