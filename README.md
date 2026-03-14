@@ -56,6 +56,7 @@ scripts/wsl/tools/install-pyenv.sh
 scripts/wsl/tools/install-azure-cli.sh
 scripts/wsl/tools/install-azd.sh
 scripts/wsl/tools/install-opentofu.sh
+scripts/wsl/tools/install-claude-code.sh
 ```
 
 Verify setup:
@@ -86,9 +87,10 @@ Optional: install individual tools:
 ```powershell
 scripts\\windows\\tools.ps1
 scripts\\windows\\install-node-codex.ps1
+scripts\\windows\\install-claude-code.ps1
 ```
 
-This includes optional tools such as nvm-windows, Rustup, and the highest available `Microsoft.DotNet.SDK.<major>` package from winget. `install-node-codex.ps1` installs Node.js (LTS) via nvm-windows and then installs Codex via npm.
+This includes optional tools such as nvm-windows, Rustup, and the highest available `Microsoft.DotNet.SDK.<major>` package from winget. `install-node-codex.ps1` installs Node.js (LTS) via nvm-windows and then installs Codex via npm. `install-claude-code.ps1` installs Claude Code with Anthropic's native installer.
 
 Verify setup:
 
@@ -113,3 +115,4 @@ This repo uses placeholders for personal data (name, email, etc). Update these a
 - Safe testing guide: `docs/safe-testing.md`.
 - If any tool is missing, check `docs/` for the setup checklist.
 - Keep Node/Codex installs separate by OS: run Node/Codex installers inside each environment (PowerShell for Windows, WSL shell for Ubuntu).
+- Keep Claude Code installs separate by OS: run the Claude installer in each environment where you want it available.

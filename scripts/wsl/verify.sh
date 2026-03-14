@@ -118,4 +118,11 @@ for opt in node npm codex; do
   fi
 done
 
+if command -v claude >/dev/null 2>&1; then
+  check_not_windows_path claude
+  echo "OK(optional): claude (native WSL path)"
+else
+  echo "MISSING(optional): claude"
+fi
+
 echo "PASS: WSL verification completed"

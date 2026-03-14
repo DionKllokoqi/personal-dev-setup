@@ -38,3 +38,4 @@ foreach ($pkg in $packages) {
 }
 
 Write-Host "To install Node LTS + codex via nvm-windows, run: scripts\\windows\\install-node-codex.ps1"
+Write-Host "To install Claude Code natively, run: scripts\\windows\\install-claude-code.ps1"

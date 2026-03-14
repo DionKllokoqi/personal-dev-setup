@@ -20,6 +20,7 @@
 - Pyenv / Python
 - AWS CLI
 - Codex
+- Claude Code
 - JetBrains IDEs: Rider, RustRover, PyCharm, WebStorm
 - VS Code
 - Visual Studio
@@ -52,3 +53,4 @@
 - Pyenv / Python
 - AWS CLI
 - Codex
+- Claude Code

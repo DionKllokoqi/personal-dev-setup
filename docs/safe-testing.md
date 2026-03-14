@@ -34,6 +34,7 @@ azd version
 tofu version
 rustc --version
 pyenv --version
+claude --version
 ```
 
 ## Windows safe test
@@ -57,6 +58,7 @@ oh-my-posh version
 gh --version
 dotnet --info
 kubectl version --client
+claude --version
 ```
 
 ## Safety gates before production use
