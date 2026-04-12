@@ -125,4 +125,11 @@ else
   echo "MISSING(optional): claude"
 fi
 
+if command -v opencode >/dev/null 2>&1; then
+  check_not_windows_path opencode
+  echo "OK(optional): opencode (native WSL path)"
+else
+  echo "MISSING(optional): opencode"
+fi
+
 echo "PASS: WSL verification completed"

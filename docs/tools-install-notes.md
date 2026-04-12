@@ -17,6 +17,8 @@
 - WSL `.zshrc` sets `BROWSER` to `wslview` (fallback `xdg-open`) for deterministic browser launch behavior.
 - If Node/npm/Codex are installed, `scripts/wsl/verify.sh` validates they resolve under `~/.nvm`.
 - If Claude Code is installed in WSL, `scripts/wsl/verify.sh` checks that `claude` resolves to a native WSL path (not `/mnt/c/...`).
+- `scripts/wsl/tools/install-opencode.sh` installs OpenCode with the official installer (`https://opencode.ai/install`). Binary is placed in `~/.opencode/bin`.
+- `scripts/windows/install-opencode.ps1` installs OpenCode via `go install` (no native Windows installer available; requires Go).
 
 ## Windows scripts
 

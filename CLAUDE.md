@@ -29,6 +29,7 @@ bash scripts/wsl/tools/install-aws-cli.sh
 bash scripts/wsl/tools/install-azure-cli.sh
 bash scripts/wsl/tools/install-azd.sh
 bash scripts/wsl/tools/install-opentofu.sh
+bash scripts/wsl/tools/install-opencode.sh
 ```
 
 ### Windows (PowerShell, run as Admin)
@@ -48,6 +49,7 @@ bash scripts/wsl/tools/install-opentofu.sh
 # Separate installers for AI tools
 .\scripts\windows\install-node-codex.ps1
 .\scripts\windows\install-claude-code.ps1
+.\scripts\windows\install-opencode.ps1
 ```
 
 ## Architecture

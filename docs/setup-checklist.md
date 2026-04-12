@@ -21,6 +21,7 @@
 - AWS CLI
 - Codex
 - Claude Code
+- OpenCode
 - JetBrains IDEs: Rider, RustRover, PyCharm, WebStorm
 - VS Code
 - Visual Studio
@@ -54,3 +55,4 @@
 - AWS CLI
 - Codex
 - Claude Code
+- OpenCode
